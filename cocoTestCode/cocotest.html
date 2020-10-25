@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coco Test</title>
+    <!-- Load TensorFlow.js. This is required to use coco-ssd model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- Load the coco-ssd model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+</head>
+
+<body>
+<h1>Object detection trial</h1>
+
+<script src="cocotest.js" type="application/javascript"></script>
+
+<canvas id="canvas"></canvas>
+
+<video autoplay="true" id="webCam" ></video>
+
+</body>
+
+<style>
+    #canvas
+    {
+        width: 100%;
+        height: 100%;
+    }
+    #webCam
+    {
+        width: 1280px;
+        height: 720px;
+        background: black;
+    }
+</style>
+
+<script>
+</script>
+</html>
