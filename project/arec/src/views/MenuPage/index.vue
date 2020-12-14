@@ -22,7 +22,7 @@ export default {
           route: '/app'},
         { id: 2,
           name: 'Settings',
-          route: '/setti'},
+          route: '/settings'},
         { id: 3,
           name: 'Quit',
           route: '/quit'}
