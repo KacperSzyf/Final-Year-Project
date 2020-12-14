@@ -5,7 +5,7 @@ import CameraPage from "@/views/CameraPage/CameraPage";
 const routes = [
   {
     path: '/',
-    name: 'Menu',
+    name: 'index',
     component: MenuPage
   },
   {
