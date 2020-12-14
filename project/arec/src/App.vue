@@ -1,15 +1,13 @@
 <template>
-<MenuPage></MenuPage>
+  <router-view/>
 </template>
 
 <script>
-import MenuPage from "@/views/MenuPage";
+//import MenuPage from "@/views/MenuPage";
 
 export default {
   name: 'App',
   components: {
-    MenuPage
-
   }
 }
 

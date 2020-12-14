@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import MenuPage from '@/views/MenuPage/index'
-import CameraPage from "@/views/CameraPage/CameraPage";
+import CameraPage from "@/views/CameraPage/index";
 
 const routes = [
   {
-    path: '/',
-    name: 'index',
+    path: "/",
+    name: "MenuPage",
     component: MenuPage
   },
   {

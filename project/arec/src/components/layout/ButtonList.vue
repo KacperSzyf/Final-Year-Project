@@ -19,6 +19,11 @@ export default {
 </script>
 
 <style scoped>
+
+.list {
+  list-style: none;
+}
+
 .list li{
   margin-bottom: 1%;
 }
