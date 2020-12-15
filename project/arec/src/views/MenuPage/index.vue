@@ -8,7 +8,6 @@
 
 <script>
 import ButtonList from "@/components/layout/ButtonList";
-console.log("FIRED!")
 export default {
   name: 'index',
   components: {ButtonList},
@@ -32,7 +31,7 @@ export default {
   methods: {
     redirectUser(event)
     {
-      console.log(event, " FIRED IN FUNCTIN")
+      console.log(event, " FIRED IN Function");
       this.$router.push(event);
     }
   }
