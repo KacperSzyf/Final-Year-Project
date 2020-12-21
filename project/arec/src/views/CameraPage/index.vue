@@ -40,7 +40,9 @@ export default {
 
     async videoAccess() {
       try {
-        const cameraAccess = await navigator.permissions.query({name: 'camera'});
+        const cameraAccess = await navigator.permissions.query({
+          facingMode: 'user',
+          name: 'camera'});
         if (cameraAccess.state == 'granted') return true;
         if (cameraAccess.state == 'denied') return false;
       } catch (err) {
