@@ -65,9 +65,9 @@ export default {
       }).then(function (stream){
         video.srcObject = stream;
         console.log("Stream Success");
-    }).catch(err => console.log(
-        "Error: " + err)
-      );
+    }).catch(err => {
+      if (err.name == 'NotAllowedError') alert("Webcam permissions denied!");
+    });
       },
     },
 
