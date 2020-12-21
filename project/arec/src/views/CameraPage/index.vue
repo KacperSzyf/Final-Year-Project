@@ -1,6 +1,6 @@
 <template>
   <div class="camera">
-    <button @click="$router.go(-1)" >Go back!</button>
+    <button @click="$router.go(-1);" >Go back!</button>
     <video id="webCam" autoplay="true"/>
   </div>
 </template>
@@ -12,6 +12,14 @@ export default {
 
   name: "index",
   components: {},
+  // data() {
+  //   const videoAccess = async() =>
+  //   {
+  //     try {
+  //       const access = await navigator.permissions.query({name: 'camera'})
+  //     }
+  //   }
+  // },
   mounted() {
     // this.$nextTick(function () {
     //   let video = document.querySelector('#webCam')
@@ -25,19 +33,42 @@ export default {
     //         }).catch(err => console.log(err));
     //   }
     // })
+
     this.renderCam(document.getElementById('webCam')); //run 'renderCam' when the Vue page loads
   },
   methods: {
+
+    async videoAccess() {
+      try {
+        const cameraAccess = await navigator.permissions.query({name: 'camera'});
+        if (cameraAccess.state == 'granted') return true;
+        if (cameraAccess.state == 'denied') return false;
+      } catch (err) {
+        console.log("An error occurred whilst trying to access webcam :" + err);
+      }
+
+    }, //Asynchronous request for camera permissions to avoid TypeError.
+
     renderCam(video)
     {
-      if (navigator.mediaDevices.getUserMedia()) {
-        navigator.mediaDevices.getUserMedia({video: true, audio: false}) //Ask for video permission
-            .then(function (stream) { //If video permission granted create a stream and render video
-              video.srcObject = stream;
-              this.$emit("video-stream", video);  //Send frames out of vue?
-            }).catch(err => console.log(err)); //If permissions are not granted or webcam doesn't work throw error
-      }
-    }
+      // if (this.videoAccess()) {
+      //   navigator.mediaDevices.getUserMedia({video: true}) //Ask for video permission
+      //       .then(function (stream) {
+      //         video.srcObject = stream;
+      //         console.log("Video started streaming");
+      //        // this.$emit("video-stream", video);  //Send frames out of vue?
+      //       }).catch(err => {
+      //   if(err.name == "TypeError") console.log("TypeError! :" + err)}); //If permissions are not granted or webcam doesn't work throw error
+      // }
+      navigator.mediaDevices.getUserMedia({
+        video: this.videoAccess()
+      }).then(function (stream){
+        video.srcObject = stream;
+        console.log("Stream Success");
+    }).catch(err => console.log(
+        "Error: " + err)
+      );
+      },
     },
 
 }
