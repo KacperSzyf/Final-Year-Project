@@ -34,7 +34,7 @@ export default {
       console.log(event, " FIRED IN Function");
       this.$router.push(event);
     }
-  }
+  },
 }
 </script>
 
