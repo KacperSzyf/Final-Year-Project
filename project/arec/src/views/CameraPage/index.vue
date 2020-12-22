@@ -7,6 +7,15 @@
 
 <script>
 console.log('CameraPage/index loaded');
+const fs = require('fs');
+const cv = require('opencv4nodejs');
+const {Darknet} = require('darknet');
+
+const darknet = new Darknet({
+  weights:  "@/model/yolov3-tiny.weights",
+  config:   "@/model/cfg/yolov3-tiny.cfg",
+  namefile: "@/model/data/coco.names",
+});
 
 export default {
 
